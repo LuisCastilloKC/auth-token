@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 const Login = () => {
     const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    
 
   return (
     <div>
@@ -10,11 +13,11 @@ const Login = () => {
         <form>
           <div>
             <label>Username:</label>
-            <input type="text" />
+            <input type="text" onChange={usernameHandler}/>
           </div>
           <div>
             <label>Password:</label>
-            <input type="text" />
+            <input type="text" onChange={passwordHandler} />
           </div>
           <div>
             <button>Login</button>
