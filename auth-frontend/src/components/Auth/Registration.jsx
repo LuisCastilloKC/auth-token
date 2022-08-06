@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const Registration = () => {
     const [usernameReg, setUsernameReg] = useState('')
-    const [passwordReg, setPasswordReg] = useState('')
     const [emailReg, setEmailReg] = useState('')
+    const [passwordReg, setPasswordReg] = useState('')
 
     const usernameHandler = (event) =>{
         setUsernameReg(event.target.value)
@@ -22,7 +22,23 @@ const Registration = () => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault()
-
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(
+                {user: {
+                    username: usernameReg,
+                    email: emailReg,
+                    password: passwordReg
+                }}
+            )
+        })
+        .then(response => response.json())
+        .then(userData => { console.log(userData)})
+        
     }
   
 
@@ -41,13 +57,14 @@ const Registration = () => {
           </div>
           <div>
             <label>Password:</label>
-            <input type="text" onChange={passwordHandler} />
+            <input type="password" onChange={passwordHandler} />
           </div>
           <div>
             <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>
+      <div></div>
     </div>
   );
 };
