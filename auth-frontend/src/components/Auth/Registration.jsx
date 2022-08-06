@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Registration = () => {
+    const [userReg, setUserReg] = useState('')
+    const [passwordReg, setPasswordReg] = useState('')
+  
 
   return (
     <div>
