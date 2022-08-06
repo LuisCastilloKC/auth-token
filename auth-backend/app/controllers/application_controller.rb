@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+    before_action :authorized
+
     def encode_token(payload)
         JTW.encode(payload, 'my_secrect')
     end
