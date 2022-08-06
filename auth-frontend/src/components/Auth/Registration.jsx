@@ -8,23 +8,32 @@ const Registration = () => {
         setUsernameReg(event.target.value)
         console.log(event.target.value)
     }
+
+    const passwordHandler =(event) => {
+        setPasswordReg(event.target.value)
+        console.log(event.target.value)
+    }
+
+    const onSubmitHandler = () => {
+
+    }
   
 
   return (
     <div>
       <h1>Registration</h1>
       <div>
-        <form>
+        <form onSubmit={onSubmitHandler}>
           <div>
             <label>Username:</label>
             <input type="text" onChange={usernameHandler} />
           </div>
           <div>
             <label>Password:</label>
-            <input type="text" />
+            <input type="text" onChange={passwordHandler} />
           </div>
           <div>
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>
