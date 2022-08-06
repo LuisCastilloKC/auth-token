@@ -4,6 +4,8 @@ const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
+
+
     const usernameHandler = (event) => {
         setUsername(event.target.value)
     }
@@ -14,13 +16,22 @@ const Login = () => {
 
     const loginOnSubmit = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3000/users', {
+        fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
                 "Content-type": "Application/json",
                 "Accept": " Application/json"
-            }
+            },
+            body: JSON.stringify(
+                {user: {
+                    username: username,
+                    password: password
+                }}
+            )
         })
+        .then(response => response.json())
+        .then(userData => {console.log(userData)})
+   
     }
 
 
@@ -35,7 +46,7 @@ const Login = () => {
           </div>
           <div>
             <label>Password:</label>
-            <input type="text" onChange={passwordHandler} />
+            <input type="password" onChange={passwordHandler} />
           </div>
           <div>
             <button type="submit">Login</button>
@@ -44,6 +55,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default Login
