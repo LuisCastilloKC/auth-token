@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 
 const Registration = () => {
-    const [userReg, setUserReg] = useState('')
+    const [usernameReg, setUsernameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
+
+    const usernameHandler = (event) =>{
+        setUsernameReg(event.target.value)
+        console.log(event.target.value)
+    }
   
 
   return (
@@ -12,7 +17,7 @@ const Registration = () => {
         <form>
           <div>
             <label>Username:</label>
-            <input type="text" />
+            <input type="text" onChange={usernameHandler} />
           </div>
           <div>
             <label>Password:</label>
