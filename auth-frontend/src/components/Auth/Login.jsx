@@ -4,9 +4,13 @@ const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const usenameHandler = (event) => {
+    const usernameHandler = (event) => {
         setUsername(event.target.value)
-    } 
+    }
+    
+    const passwordHandler = (event) => {
+        setPassword(event.target.value)
+    }
 
   return (
     <div>
