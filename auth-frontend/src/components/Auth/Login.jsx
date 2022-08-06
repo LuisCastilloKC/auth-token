@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+    const [username, setUsername] = useState('')
+
   return (
     <div>
       <h1>Login</h1>
