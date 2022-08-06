@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [usernameData, setUsernameData] = useState('')
-
+    // reset all input after submit with useRef
+    const firstRef = useRef(null)
+    const lastRef = useRef(null)
+  
 
     const usernameHandler = (event) => {
         setUsername(event.target.value)
+     
     }
     
     const passwordHandler = (event) => {
         setPassword(event.target.value)
+   
     }
 
     const loginOnSubmit = (event) => {
@@ -36,9 +41,10 @@ const Login = () => {
         } else {
             setUsernameData(userData.user.username)
         }
+  
     })
-           
-
+    // reset all input after submit with useRef
+     event.target.reset()
     }
 
 
@@ -49,11 +55,11 @@ const Login = () => {
         <form onSubmit={loginOnSubmit}>
           <div>
             <label>Username:</label>
-            <input type="text" onChange={usernameHandler}/>
+            <input type="text" ref={firstRef} onChange={usernameHandler}/>
           </div>
           <div>
             <label>Password:</label>
-            <input type="password" name="password" autoComplete="on" onChange={passwordHandler} />
+            <input type="password"  ref={lastRef} name="password" autoComplete="off" onChange={passwordHandler} />
           </div>
           <div>
             <button type="submit">Login</button>
