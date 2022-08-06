@@ -27,6 +27,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def auto_login
+        render json: current_user
+    end
+
     private
 
     def user_params
