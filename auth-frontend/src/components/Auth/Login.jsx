@@ -12,6 +12,17 @@ const Login = () => {
         setPassword(event.target.value)
     }
 
+    const loginOnSubmit = (event) => {
+        event.preventDefault()
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                "Content-type": "Application/json",
+                "Accept": " Application/json"
+            }
+        })
+    }
+
 
   return (
     <div>
