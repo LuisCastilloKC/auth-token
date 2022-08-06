@@ -57,7 +57,7 @@ const Registration = () => {
           </div>
           <div>
             <label>Password:</label>
-            <input type="password" onChange={passwordHandler} />
+            <input type="password" autoComplete="on" onChange={passwordHandler} />
           </div>
           <div>
             <button type="submit">Sign Up</button>
