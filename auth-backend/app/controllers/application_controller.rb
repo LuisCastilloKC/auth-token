@@ -8,4 +8,15 @@ class ApplicationController < ActionController::API
         request.header['Authorization']
     end
 
+    def decoded_token
+        if auth_header
+            token = auth_header.split(' ')[1]
+            begin
+                JWT.decode(token, 'my_secrect', true, algorithm: 'HS256')
+            rescue JWT::DecodeError
+                nill
+            end
+        end
+    end
+
 end
