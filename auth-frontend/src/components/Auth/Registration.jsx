@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Registration = () => {
     const [usernameReg, setUsernameReg] = useState('')
     const [passwordReg, setPasswordReg] = useState('')
+    const [emailReg, setEmailReg] = useState('')
 
     const usernameHandler = (event) =>{
         setUsernameReg(event.target.value)
@@ -11,6 +12,11 @@ const Registration = () => {
 
     const passwordHandler =(event) => {
         setPasswordReg(event.target.value)
+        console.log(event.target.value)
+    }
+
+    const emailHandler = (event) => {
+        setEmailReg(event.target.value)
         console.log(event.target.value)
     }
 
@@ -27,6 +33,10 @@ const Registration = () => {
           <div>
             <label>Username:</label>
             <input type="text" onChange={usernameHandler} />
+          </div>
+          <div>
+            <label>Email:</label>
+            <input type="text" onChange={emailHandler} />
           </div>
           <div>
             <label>Password:</label>
