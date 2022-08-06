@@ -12,11 +12,12 @@ const Login = () => {
         setPassword(event.target.value)
     }
 
+
   return (
     <div>
       <h1>Login</h1>
       <div>
-        <form>
+        <form onSubmit={loginOnSubmit}>
           <div>
             <label>Username:</label>
             <input type="text" onChange={usernameHandler}/>
@@ -26,7 +27,7 @@ const Login = () => {
             <input type="text" onChange={passwordHandler} />
           </div>
           <div>
-            <button>Login</button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>
