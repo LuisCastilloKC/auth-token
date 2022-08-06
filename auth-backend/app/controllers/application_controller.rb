@@ -3,11 +3,11 @@ class ApplicationController < ActionController::API
     before_action :authorized
 
     def encode_token(payload)
-        JTW.encode(payload, 'my_secrect')
+        JWT.encode(payload, 'my_secrect')
     end
 
     def auth_header
-        request.header['Authorization']
+        request.headers['Authorization']
     end
 
     def decoded_token
