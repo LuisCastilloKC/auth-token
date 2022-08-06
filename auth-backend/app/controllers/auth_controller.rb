@@ -17,4 +17,11 @@ class AuthController < ApplicationController
             status: :unauthorized
         end
     end
+    
+    private
+
+    def user_login_params
+        params.require(:user).permit(:username, :password)
+    end
+
 end
