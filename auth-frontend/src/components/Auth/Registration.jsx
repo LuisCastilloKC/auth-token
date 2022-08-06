@@ -20,7 +20,8 @@ const Registration = () => {
         console.log(event.target.value)
     }
 
-    const onSubmitHandler = () => {
+    const onSubmitHandler = (event) => {
+        event.preventDefault()
 
     }
   
