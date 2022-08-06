@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    
+    skip_before_action :authorized, except: [:auto_login]
+
     def index
         user = User.all
         render json: user
